@@ -9,9 +9,25 @@ public class SecretMessages {
 		String message = scan.nextLine();
 		String output = "";
 		char key = 13;
-		for(int i=message.length()-1; i>=0; i--) {
-			output += (char)(message.charAt(i) + key);
+		for (int x = 0; x < message.length(); x++) {
+			char input = message.charAt(x);
+			if (input >= 'A' && input <='Z') {
+				input += key;
+				if (input > 'Z') 
+					input -= 26;
+				
+			} else if (input >= 'a' && input <='z') {
+				input += key;
+				if (input > 'z') 
+					input -= 26;
+				
+			}
+			output += input;
 		}
+		
+//		for(int i=message.length()-1; i>=0; i--) {
+//			output += (char)(message.charAt(i) + key);
+//		}
 		System.out.println(output);
 		scan.close();
 	}
